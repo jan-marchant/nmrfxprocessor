@@ -648,6 +648,10 @@ public class PeakDim {
         return myPeak;
     }
 
+    public PeakList getPeakList() { return myPeak.peakList; }
+
+    public String getSampleConditionLabel() { return myPeak.peakList.getSampleConditionLabel(); }
+
     public boolean isLinked() {
         return (getLinkedPeakDims().size() > 2);
     }
