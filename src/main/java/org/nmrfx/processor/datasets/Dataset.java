@@ -3607,6 +3607,10 @@ public class Dataset extends DoubleVector implements Comparable<Dataset> {
         properties.put(name, value);
     }
 
+    public void removeProperty(String name) {
+        properties.remove(name);
+    }
+
     /**
      * Return the value for a specified property
      *

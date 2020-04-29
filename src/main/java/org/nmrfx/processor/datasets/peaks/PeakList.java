@@ -120,7 +120,7 @@ public class PeakList {
      */
     public boolean inMem;
     private SpectralDim[] spectralDims = null;
-    List<SearchDim> searchDims = new ArrayList<>();
+    public List<SearchDim> searchDims = new ArrayList<>();
 
     /**
      *
@@ -1544,10 +1544,11 @@ public class PeakList {
      *
      * @param newPeak
      */
-    public void addPeak(Peak newPeak) {
+    public Peak addPeak(Peak newPeak) {
         newPeak.initPeakDimContribs();
         peaks.add(newPeak);
         clearIndex();
+        return newPeak;
     }
 
     /**
@@ -3763,9 +3764,15 @@ public class PeakList {
         return specDim;
     }
 
+    public void setSpectralDim(SpectralDim specDim,int iDim) {
+        if (iDim < spectralDims.length) {
+            spectralDims[iDim]=specDim;
+        }
+    }
+
     /**
      *
-     * @param iDim
+     * @param name
      * @return
      */
     public SpectralDim getSpectralDim(String name) {

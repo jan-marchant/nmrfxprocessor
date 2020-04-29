@@ -1380,7 +1380,7 @@ public class Peak implements Comparable, PeakOrMulti {
         return status;
     }
 
-    public final void setStatus(int status) {
+    public void setStatus(int status) {
         this.status = status;
         peakUpdated(this);
     }
