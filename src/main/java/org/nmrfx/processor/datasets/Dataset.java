@@ -17,6 +17,7 @@
  */
 package org.nmrfx.processor.datasets;
 
+import javafx.collections.ObservableMap;
 import org.nmrfx.processor.math.Matrix;
 import org.nmrfx.processor.math.MatrixND;
 import org.nmrfx.processor.math.Vec;
@@ -66,7 +67,7 @@ public class Dataset extends DoubleVector implements Comparable<Dataset> {
 //        } catch (IOException ioE) {
 //        }
 //    }
-    private static HashMap<String, Dataset> theFiles () {
+    private static ObservableMap<String, Dataset> theFiles () {
         return Project.getActive().datasetList;
     }
     public final static int NV_HEADER_SIZE = 2048;

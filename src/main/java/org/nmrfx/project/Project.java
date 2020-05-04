@@ -52,7 +52,7 @@ public class Project {
     Path projectDir = null;
     final String name;
     public final Map<String, PeakList> peakLists = new HashMap<>();
-    public HashMap<String, Dataset> datasetList;
+    public ObservableMap<String, Dataset> datasetList;
     public ObservableMap<String, PeakList> peakListTable;
     public ResonanceFactory resFactory;
     public Map<String, PeakPath> peakPaths;
@@ -60,7 +60,7 @@ public class Project {
 
     public Project(String name) {
         this.name = name;
-        this.datasetList = new HashMap<>();
+        this.datasetList = FXCollections.observableMap(new HashMap<>());
         this.peakListTable = FXCollections.observableMap(new LinkedHashMap<>());
         this.resFactory=getNewResFactory();
         this.resFactory.init();
@@ -146,7 +146,7 @@ public class Project {
         return name;
     }
 
-    public final void setActive() {
+    public void setActive() {
         activeProject = this;
     }
 
