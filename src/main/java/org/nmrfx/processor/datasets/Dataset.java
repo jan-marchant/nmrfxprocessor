@@ -2257,6 +2257,29 @@ public class Dataset extends DoubleVector implements Comparable<Dataset> {
         return noiseLevel == null ? null : noiseLevel / scale;
     }
 
+    public Double extremeValue() {
+        int[][] pt = new int[nDim][2];
+        int[] cpt = new int[nDim];
+        int[] dim = new int[nDim];
+        double[] width = new double[nDim];
+        for (int i = 0; i < nDim; i++) {
+            dim[i] = i;
+            pt[i][0] = 4;
+            if (pt[i][0] >= getSize(i)) {
+                pt[i][0] = getSize(i) - 1;
+            }
+            pt[i][1] = getSize(i) -4;
+            cpt[i] = (pt[i][0] + pt[i][1]) / 2;
+            width[i] = Math.abs(pt[i][0] - pt[i][1]);
+        }
+        try {
+            RegionData rData = analyzeRegion(pt, cpt, width, dim);
+            return rData.getExtreme();
+        } catch (IOException ioE) {
+            return null;
+        }
+    }
+
     /**
      * Calculate basic descriptive statistics on the specified region of the
      * dataset.

@@ -51,6 +51,7 @@ public class PeakDim {
     private Resonance resonance;
     private boolean frozen = false;
     private boolean linksDrawn = false;  // used in drawing link lines
+    private int ppmSet=0;
 
     void peakDimUpdated() {
         if (myPeak != null) {
@@ -770,5 +771,13 @@ public class PeakDim {
                 }
             }
         }
+    }
+
+    public int getPpmSet() {
+        return ppmSet;
+    }
+
+    public void setPpmSet(int ppmSet) {
+        this.ppmSet = ppmSet;
     }
 }
