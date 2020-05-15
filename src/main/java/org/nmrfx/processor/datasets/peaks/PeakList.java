@@ -19,6 +19,10 @@ package org.nmrfx.processor.datasets.peaks;
 
 import org.nmrfx.processor.datasets.Dataset;
 import org.nmrfx.processor.optimization.*;
+import org.nmrfx.processor.star.Loop;
+import org.nmrfx.processor.star.ParseException;
+import org.nmrfx.processor.star.Saveframe;
+import org.nmrfx.processor.utilities.NvUtil;
 import org.nmrfx.processor.utilities.Util;
 import java.io.*;
 import static java.lang.Double.compare;
