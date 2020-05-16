@@ -642,6 +642,8 @@ public class PeakDim {
     public PeakList getPeakList() { return myPeak.peakList; }
 
     public String getSampleConditionLabel() { return myPeak.peakList.getSampleConditionLabel(); }
+    public String getSampleLabel() { return myPeak.peakList.getSampleLabel(); }
+
 
     public boolean isLinked() {
         return (getLinkedPeakDims().size() > 2);
@@ -748,8 +750,10 @@ public class PeakDim {
     void freezeDims(boolean useAllConditions) {
         List<PeakDim> links = getLinkedPeakDims();
         String condition = myPeak.peakList.getSampleConditionLabel();
+        String sample = myPeak.peakList.getSampleConditionLabel();
         for (PeakDim peakDim : links) {
-            if ((peakDim != this) && (useAllConditions || peakDim.myPeak.peakList.getSampleConditionLabel().equals(condition))) {
+            if ((peakDim != this) && (useAllConditions || (peakDim.myPeak.peakList.getSampleConditionLabel().equals(condition) &&
+                    peakDim.myPeak.peakList.getSampleLabel().equals(sample)))) {
                 // use field so we don't fire recursive freezeDims
                 peakDim.frozen = frozen;
                 peakDim.myPeak.updateFrozenColor();
