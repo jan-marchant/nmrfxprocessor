@@ -146,7 +146,7 @@ public class Project {
         return name;
     }
 
-    public final void setActive() {
+    public void setActive() {
         activeProject = this;
     }
 
