@@ -146,6 +146,10 @@ public class Project {
         return name;
     }
 
+    public String name() {
+        return name;
+    }
+
     public void setActive() {
         activeProject = this;
     }
