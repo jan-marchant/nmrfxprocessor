@@ -312,7 +312,7 @@ public class Project {
         Pattern pattern = Pattern.compile("(.+)\\.(nv|ucsf)");
         Predicate<String> predicate = pattern.asPredicate();
         if (Files.isDirectory(directory)) {
-            Files.list(directory).sequential().filter(path -> predicate.test(path.getFileName().toString())).
+            Files.walk(directory).sequential().filter(path -> predicate.test(path.getFileName().toString())).
                     forEach(path -> {
                         System.out.println("read dataset: " + path.toString());
                         String pathName = path.toString();
