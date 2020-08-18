@@ -4864,13 +4864,15 @@ public class Dataset extends DoubleVector implements Comparable<Dataset> {
         }
         String prefix = StringUtils.getCommonPrefix(names);
         System.out.println("prefix " + prefix);
-        datasets().forEach((dataset) -> {
+        for (Dataset dataset : datasets()) {
+            //datasets().forEach((dataset) -> {
             String name = dataset.getName();
             String title = StringUtils.removeStart(name, prefix);
             title = StringUtils.removeEndIgnoreCase(title, ".nv");
             System.out.println("title " + title);
             dataset.setTitle(title);
-        });
+        }
+        //});
     }
 
     public LineShapeCatalog getLSCatalog() {

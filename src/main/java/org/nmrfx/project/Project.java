@@ -67,6 +67,11 @@ public class Project {
         setActive();
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
+
     private ResonanceFactory getNewResFactory() {
         ResonanceFactory resFact;
         try {
