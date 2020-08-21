@@ -212,6 +212,26 @@ public class PeakList {
         listNum = Project.getActive().getPeakLists().size();
     }
 
+    public PeakList(String name, int n, int listNum) {
+        listName = name;
+        fileName = "";
+        nDim = n;
+        spectralDims = new SpectralDim[nDim];
+        scale = 1.0;
+        idLast = -1;
+
+        int i;
+
+        for (i = 0; i < nDim; i++) {
+            spectralDims[i] = new SpectralDim(this, i);
+        }
+
+        peaks = new ArrayList<>();
+        indexMap.clear();
+        Project.getActive().addPeakList(this, listName);
+        this.listNum = listNum;
+    }
+
     @Override
     public String toString() {
         return listName;
